@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: email-sender   # Adjusted to a valid name
+  name: email-sender   
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: email-sender   # Adjusted to a valid label
+      app: email-sender   
   template:
     metadata:
       labels:
-        app: email-sender   # Adjusted to a valid label
+        app: email-sender  
     spec:
       containers:
-        - name: email-sender   # Adjusted to a valid name
+        - name: email-sender  
           image: teogisis/emailsender:latest 
           ports:
             - containerPort: 80    
@@ -24,10 +24,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: email-sender   # Adjusted to a valid name
+  name: email-sender   
 spec:
   selector:
-    app: email-sender   # Adjusted to match the Deployment's label
+    app: email-sender   
   ports:
     - protocol: TCP
       port: 80      
